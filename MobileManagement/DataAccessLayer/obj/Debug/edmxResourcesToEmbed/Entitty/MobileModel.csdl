@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobileModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MobileEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACCOUNTs" EntityType="MobileModel.ACCOUNT" />
+    <EntitySet Name="CATEGORies" EntityType="MobileModel.CATEGORY" />
+    <EntitySet Name="ITEMs" EntityType="MobileModel.ITEM" />
+    <EntitySet Name="ITEM_RULE" EntityType="MobileModel.ITEM_RULE" />
+    <EntitySet Name="ORDERs" EntityType="MobileModel.ORDER" />
+    <EntitySet Name="ORDER_DETAIL" EntityType="MobileModel.ORDER_DETAIL" />
+    <EntitySet Name="RULEs" EntityType="MobileModel.RULE" />
+    <EntitySet Name="SUBCATEGORies" EntityType="MobileModel.SUBCATEGORY" />
+    <EntitySet Name="sysdiagrams" EntityType="MobileModel.sysdiagram" />
+    <EntitySet Name="USERs" EntityType="MobileModel.USER" />
+    <EntitySet Name="WEEKDAYITEM_RULE" EntityType="MobileModel.WEEKDAYITEM_RULE" />
+    <AssociationSet Name="FK_USER_ACCOUNT" Association="MobileModel.FK_USER_ACCOUNT">
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+      <End Role="USER" EntitySet="USERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ITEM_RULE_ITEM" Association="MobileModel.FK_ITEM_RULE_ITEM">
+      <End Role="ITEM" EntitySet="ITEMs" />
+      <End Role="ITEM_RULE" EntitySet="ITEM_RULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_DETAIL_ITEM" Association="MobileModel.FK_ORDER_DETAIL_ITEM">
+      <End Role="ITEM" EntitySet="ITEMs" />
+      <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ITEM_RULE_RULE" Association="MobileModel.FK_ITEM_RULE_RULE">
+      <End Role="RULE" EntitySet="RULEs" />
+      <End Role="ITEM_RULE" EntitySet="ITEM_RULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_DETAIL_ORDER" Association="MobileModel.FK_ORDER_DETAIL_ORDER">
+      <End Role="ORDER" EntitySet="ORDERs" />
+      <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WEEKDAYITEM_RULE_RULE" Association="MobileModel.FK_WEEKDAYITEM_RULE_RULE">
+      <End Role="RULE" EntitySet="RULEs" />
+      <End Role="WEEKDAYITEM_RULE" EntitySet="WEEKDAYITEM_RULE" />
+    </AssociationSet>
+    <AssociationSet Name="CATEGORY_ITEM" Association="MobileModel.CATEGORY_ITEM">
+      <End Role="CATEGORY" EntitySet="CATEGORies" />
+      <End Role="ITEM" EntitySet="ITEMs" />
+    </AssociationSet>
+    <AssociationSet Name="SUBCATEGORY_ITEM" Association="MobileModel.SUBCATEGORY_ITEM">
+      <End Role="ITEM" EntitySet="ITEMs" />
+      <End Role="SUBCATEGORY" EntitySet="SUBCATEGORies" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Level" Type="Int32" />
+    <NavigationProperty Name="USERs" Relationship="MobileModel.FK_USER_ACCOUNT" FromRole="ACCOUNT" ToRole="USER" />
+  </EntityType>
+  <EntityType Name="CATEGORY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ITEMs" Relationship="MobileModel.CATEGORY_ITEM" FromRole="CATEGORY" ToRole="ITEM" />
+  </EntityType>
+  <EntityType Name="ITEM">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Ram" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Camera" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Cpu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="ITEM_RULE" Relationship="MobileModel.FK_ITEM_RULE_ITEM" FromRole="ITEM" ToRole="ITEM_RULE" />
+    <NavigationProperty Name="ORDER_DETAIL" Relationship="MobileModel.FK_ORDER_DETAIL_ITEM" FromRole="ITEM" ToRole="ORDER_DETAIL" />
+    <NavigationProperty Name="CATEGORies" Relationship="MobileModel.CATEGORY_ITEM" FromRole="ITEM" ToRole="CATEGORY" />
+    <NavigationProperty Name="SUBCATEGORies" Relationship="MobileModel.SUBCATEGORY_ITEM" FromRole="ITEM" ToRole="SUBCATEGORY" />
+  </EntityType>
+  <EntityType Name="ITEM_RULE">
+    <Key>
+      <PropertyRef Name="RuleId" />
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="RuleId" Type="Int32" Nullable="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="IsShow" Type="Boolean" />
+    <NavigationProperty Name="ITEM" Relationship="MobileModel.FK_ITEM_RULE_ITEM" FromRole="ITEM_RULE" ToRole="ITEM" />
+    <NavigationProperty Name="RULE" Relationship="MobileModel.FK_ITEM_RULE_RULE" FromRole="ITEM_RULE" ToRole="RULE" />
+  </EntityType>
+  <EntityType Name="ORDER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="ORDER_DETAIL" Relationship="MobileModel.FK_ORDER_DETAIL_ORDER" FromRole="ORDER" ToRole="ORDER_DETAIL" />
+  </EntityType>
+  <EntityType Name="ORDER_DETAIL">
+    <Key>
+      <PropertyRef Name="ItemId" />
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="PriceOrder" Type="Double" />
+    <NavigationProperty Name="ITEM" Relationship="MobileModel.FK_ORDER_DETAIL_ITEM" FromRole="ORDER_DETAIL" ToRole="ITEM" />
+    <NavigationProperty Name="ORDER" Relationship="MobileModel.FK_ORDER_DETAIL_ORDER" FromRole="ORDER_DETAIL" ToRole="ORDER" />
+  </EntityType>
+  <EntityType Name="RULE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="EndTime" Type="Time" Precision="7" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ITEM_RULE" Relationship="MobileModel.FK_ITEM_RULE_RULE" FromRole="RULE" ToRole="ITEM_RULE" />
+    <NavigationProperty Name="WEEKDAYITEM_RULE" Relationship="MobileModel.FK_WEEKDAYITEM_RULE_RULE" FromRole="RULE" ToRole="WEEKDAYITEM_RULE" />
+  </EntityType>
+  <EntityType Name="SUBCATEGORY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ITEMs" Relationship="MobileModel.SUBCATEGORY_ITEM" FromRole="SUBCATEGORY" ToRole="ITEM" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountId" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT" Relationship="MobileModel.FK_USER_ACCOUNT" FromRole="USER" ToRole="ACCOUNT" />
+  </EntityType>
+  <EntityType Name="WEEKDAYITEM_RULE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RuleId" Type="Int32" />
+    <Property Name="Day" Type="Int32" />
+    <NavigationProperty Name="RULE" Relationship="MobileModel.FK_WEEKDAYITEM_RULE_RULE" FromRole="WEEKDAYITEM_RULE" ToRole="RULE" />
+  </EntityType>
+  <Association Name="FK_USER_ACCOUNT">
+    <End Type="MobileModel.ACCOUNT" Role="ACCOUNT" Multiplicity="0..1" />
+    <End Type="MobileModel.USER" Role="USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ITEM_RULE_ITEM">
+    <End Type="MobileModel.ITEM" Role="ITEM" Multiplicity="1" />
+    <End Type="MobileModel.ITEM_RULE" Role="ITEM_RULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ITEM">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ITEM_RULE">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_DETAIL_ITEM">
+    <End Type="MobileModel.ITEM" Role="ITEM" Multiplicity="1" />
+    <End Type="MobileModel.ORDER_DETAIL" Role="ORDER_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ITEM">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDER_DETAIL">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ITEM_RULE_RULE">
+    <End Type="MobileModel.RULE" Role="RULE" Multiplicity="1" />
+    <End Type="MobileModel.ITEM_RULE" Role="ITEM_RULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ITEM_RULE">
+        <PropertyRef Name="RuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_DETAIL_ORDER">
+    <End Type="MobileModel.ORDER" Role="ORDER" Multiplicity="1" />
+    <End Type="MobileModel.ORDER_DETAIL" Role="ORDER_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDER_DETAIL">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WEEKDAYITEM_RULE_RULE">
+    <End Type="MobileModel.RULE" Role="RULE" Multiplicity="0..1" />
+    <End Type="MobileModel.WEEKDAYITEM_RULE" Role="WEEKDAYITEM_RULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WEEKDAYITEM_RULE">
+        <PropertyRef Name="RuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CATEGORY_ITEM">
+    <End Type="MobileModel.CATEGORY" Role="CATEGORY" Multiplicity="*" />
+    <End Type="MobileModel.ITEM" Role="ITEM" Multiplicity="*" />
+  </Association>
+  <Association Name="SUBCATEGORY_ITEM">
+    <End Type="MobileModel.ITEM" Role="ITEM" Multiplicity="*" />
+    <End Type="MobileModel.SUBCATEGORY" Role="SUBCATEGORY" Multiplicity="*" />
+  </Association>
+</Schema>

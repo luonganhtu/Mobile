@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobileModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Level" Type="int" />
+  </EntityType>
+  <EntityType Name="CATEGORY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CATEGORY_ITEM">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="ItemId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ITEM">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Ram" Type="varchar" MaxLength="20" />
+    <Property Name="Pin" Type="varchar" MaxLength="50" />
+    <Property Name="Camera" Type="nvarchar" MaxLength="20" />
+    <Property Name="Cpu" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="ITEM_RULE">
+    <Key>
+      <PropertyRef Name="RuleId" />
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="RuleId" Type="int" Nullable="false" />
+    <Property Name="ItemId" Type="int" Nullable="false" />
+    <Property Name="IsShow" Type="bit" />
+  </EntityType>
+  <EntityType Name="ORDER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchaseDate" Type="datetime" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="ORDER_DETAIL">
+    <Key>
+      <PropertyRef Name="ItemId" />
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="ItemId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="PriceOrder" Type="float" />
+  </EntityType>
+  <EntityType Name="RULE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="EndTime" Type="time" Precision="7" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SUBCATEGORY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SUBCATEGORY_ITEM">
+    <Key>
+      <PropertyRef Name="SubId" />
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="SubId" Type="int" Nullable="false" />
+    <Property Name="ItemId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountId" Type="int" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="WEEKDAYITEM_RULE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RuleId" Type="int" />
+    <Property Name="Day" Type="int" />
+  </EntityType>
+  <Association Name="FK_CATEGORY_ITEM_CATEGORY">
+    <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+    <End Role="CATEGORY_ITEM" Type="Self.CATEGORY_ITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORY">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CATEGORY_ITEM">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CATEGORY_ITEM_ITEM">
+    <End Role="ITEM" Type="Self.ITEM" Multiplicity="1" />
+    <End Role="CATEGORY_ITEM" Type="Self.CATEGORY_ITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ITEM">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CATEGORY_ITEM">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ITEM_RULE_ITEM">
+    <End Role="ITEM" Type="Self.ITEM" Multiplicity="1" />
+    <End Role="ITEM_RULE" Type="Self.ITEM_RULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ITEM">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ITEM_RULE">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ITEM_RULE_RULE">
+    <End Role="RULE" Type="Self.RULE" Multiplicity="1" />
+    <End Role="ITEM_RULE" Type="Self.ITEM_RULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ITEM_RULE">
+        <PropertyRef Name="RuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_DETAIL_ITEM">
+    <End Role="ITEM" Type="Self.ITEM" Multiplicity="1" />
+    <End Role="ORDER_DETAIL" Type="Self.ORDER_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ITEM">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDER_DETAIL">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_DETAIL_ORDER">
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+    <End Role="ORDER_DETAIL" Type="Self.ORDER_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDER_DETAIL">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUBCATEGORY_ITEM_ITEM">
+    <End Role="ITEM" Type="Self.ITEM" Multiplicity="1" />
+    <End Role="SUBCATEGORY_ITEM" Type="Self.SUBCATEGORY_ITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ITEM">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SUBCATEGORY_ITEM">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUBCATEGORY_ITEM_SUBCATEGORY">
+    <End Role="SUBCATEGORY" Type="Self.SUBCATEGORY" Multiplicity="1" />
+    <End Role="SUBCATEGORY_ITEM" Type="Self.SUBCATEGORY_ITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUBCATEGORY">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SUBCATEGORY_ITEM">
+        <PropertyRef Name="SubId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_ACCOUNT">
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+    <End Role="USER" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WEEKDAYITEM_RULE_RULE">
+    <End Role="RULE" Type="Self.RULE" Multiplicity="0..1" />
+    <End Role="WEEKDAYITEM_RULE" Type="Self.WEEKDAYITEM_RULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RULE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WEEKDAYITEM_RULE">
+        <PropertyRef Name="RuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MobileModelStoreContainer">
+    <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CATEGORY_ITEM" EntityType="Self.CATEGORY_ITEM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ITEM" EntityType="Self.ITEM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ITEM_RULE" EntityType="Self.ITEM_RULE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER" EntityType="Self.ORDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER_DETAIL" EntityType="Self.ORDER_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RULE" EntityType="Self.RULE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUBCATEGORY" EntityType="Self.SUBCATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUBCATEGORY_ITEM" EntityType="Self.SUBCATEGORY_ITEM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WEEKDAYITEM_RULE" EntityType="Self.WEEKDAYITEM_RULE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CATEGORY_ITEM_CATEGORY" Association="Self.FK_CATEGORY_ITEM_CATEGORY">
+      <End Role="CATEGORY" EntitySet="CATEGORY" />
+      <End Role="CATEGORY_ITEM" EntitySet="CATEGORY_ITEM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CATEGORY_ITEM_ITEM" Association="Self.FK_CATEGORY_ITEM_ITEM">
+      <End Role="ITEM" EntitySet="ITEM" />
+      <End Role="CATEGORY_ITEM" EntitySet="CATEGORY_ITEM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ITEM_RULE_ITEM" Association="Self.FK_ITEM_RULE_ITEM">
+      <End Role="ITEM" EntitySet="ITEM" />
+      <End Role="ITEM_RULE" EntitySet="ITEM_RULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ITEM_RULE_RULE" Association="Self.FK_ITEM_RULE_RULE">
+      <End Role="RULE" EntitySet="RULE" />
+      <End Role="ITEM_RULE" EntitySet="ITEM_RULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_DETAIL_ITEM" Association="Self.FK_ORDER_DETAIL_ITEM">
+      <End Role="ITEM" EntitySet="ITEM" />
+      <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_DETAIL_ORDER" Association="Self.FK_ORDER_DETAIL_ORDER">
+      <End Role="ORDER" EntitySet="ORDER" />
+      <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUBCATEGORY_ITEM_ITEM" Association="Self.FK_SUBCATEGORY_ITEM_ITEM">
+      <End Role="ITEM" EntitySet="ITEM" />
+      <End Role="SUBCATEGORY_ITEM" EntitySet="SUBCATEGORY_ITEM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUBCATEGORY_ITEM_SUBCATEGORY" Association="Self.FK_SUBCATEGORY_ITEM_SUBCATEGORY">
+      <End Role="SUBCATEGORY" EntitySet="SUBCATEGORY" />
+      <End Role="SUBCATEGORY_ITEM" EntitySet="SUBCATEGORY_ITEM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_ACCOUNT" Association="Self.FK_USER_ACCOUNT">
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+      <End Role="USER" EntitySet="USER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WEEKDAYITEM_RULE_RULE" Association="Self.FK_WEEKDAYITEM_RULE_RULE">
+      <End Role="RULE" EntitySet="RULE" />
+      <End Role="WEEKDAYITEM_RULE" EntitySet="WEEKDAYITEM_RULE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

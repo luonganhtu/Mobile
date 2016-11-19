@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://SubCategoryService.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://SubCategoryService.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://SubCategoryService.org/">
+      <s:element name="GetListSubCategory">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListSubCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListSubCategoryResult" type="tns:ArrayOfSubCategoryDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSubCategoryDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubCategoryDTO" nillable="true" type="tns:SubCategoryDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubCategoryDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CategoryId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetListSubCategoryWhenIdCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_pIdCategory" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListSubCategoryWhenIdCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListSubCategoryWhenIdCategoryResult" type="tns:ArrayOfSubCategoryDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSubCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pSubCategoryDTO" type="tns:SubCategoryDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSubCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddSubCategoryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExisSubName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pSubName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pSubID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCatId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExisSubNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExisSubNameResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditSubCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pSubCategoryDTO" type="tns:SubCategoryDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditSubCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditSubCategoryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CanDeleteSubCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pSubCatID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CanDeleteSubCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CanDeleteSubCategoryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSubCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pSubCategoryID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSubCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSubCategoryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetListSubCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetListSubCategory" />
+  </wsdl:message>
+  <wsdl:message name="GetListSubCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetListSubCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSubCategoryWhenIdCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetListSubCategoryWhenIdCategory" />
+  </wsdl:message>
+  <wsdl:message name="GetListSubCategoryWhenIdCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetListSubCategoryWhenIdCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSubCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:AddSubCategory" />
+  </wsdl:message>
+  <wsdl:message name="AddSubCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:AddSubCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExisSubNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ExisSubName" />
+  </wsdl:message>
+  <wsdl:message name="ExisSubNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ExisSubNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditSubCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:EditSubCategory" />
+  </wsdl:message>
+  <wsdl:message name="EditSubCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:EditSubCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="CanDeleteSubCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:CanDeleteSubCategory" />
+  </wsdl:message>
+  <wsdl:message name="CanDeleteSubCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:CanDeleteSubCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSubCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSubCategory" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSubCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSubCategoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SubCategoryServiceSoap">
+    <wsdl:operation name="GetListSubCategory">
+      <wsdl:input message="tns:GetListSubCategorySoapIn" />
+      <wsdl:output message="tns:GetListSubCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSubCategoryWhenIdCategory">
+      <wsdl:input message="tns:GetListSubCategoryWhenIdCategorySoapIn" />
+      <wsdl:output message="tns:GetListSubCategoryWhenIdCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSubCategory">
+      <wsdl:input message="tns:AddSubCategorySoapIn" />
+      <wsdl:output message="tns:AddSubCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisSubName">
+      <wsdl:input message="tns:ExisSubNameSoapIn" />
+      <wsdl:output message="tns:ExisSubNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditSubCategory">
+      <wsdl:input message="tns:EditSubCategorySoapIn" />
+      <wsdl:output message="tns:EditSubCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CanDeleteSubCategory">
+      <wsdl:input message="tns:CanDeleteSubCategorySoapIn" />
+      <wsdl:output message="tns:CanDeleteSubCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubCategory">
+      <wsdl:input message="tns:DeleteSubCategorySoapIn" />
+      <wsdl:output message="tns:DeleteSubCategorySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SubCategoryServiceSoap" type="tns:SubCategoryServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListSubCategory">
+      <soap:operation soapAction="http://SubCategoryService.org/GetListSubCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSubCategoryWhenIdCategory">
+      <soap:operation soapAction="http://SubCategoryService.org/GetListSubCategoryWhenIdCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSubCategory">
+      <soap:operation soapAction="http://SubCategoryService.org/AddSubCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisSubName">
+      <soap:operation soapAction="http://SubCategoryService.org/ExisSubName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSubCategory">
+      <soap:operation soapAction="http://SubCategoryService.org/EditSubCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanDeleteSubCategory">
+      <soap:operation soapAction="http://SubCategoryService.org/CanDeleteSubCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubCategory">
+      <soap:operation soapAction="http://SubCategoryService.org/DeleteSubCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SubCategoryServiceSoap12" type="tns:SubCategoryServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetListSubCategory">
+      <soap12:operation soapAction="http://SubCategoryService.org/GetListSubCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSubCategoryWhenIdCategory">
+      <soap12:operation soapAction="http://SubCategoryService.org/GetListSubCategoryWhenIdCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSubCategory">
+      <soap12:operation soapAction="http://SubCategoryService.org/AddSubCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisSubName">
+      <soap12:operation soapAction="http://SubCategoryService.org/ExisSubName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSubCategory">
+      <soap12:operation soapAction="http://SubCategoryService.org/EditSubCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanDeleteSubCategory">
+      <soap12:operation soapAction="http://SubCategoryService.org/CanDeleteSubCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubCategory">
+      <soap12:operation soapAction="http://SubCategoryService.org/DeleteSubCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SubCategoryService">
+    <wsdl:port name="SubCategoryServiceSoap" binding="tns:SubCategoryServiceSoap">
+      <soap:address location="http://localhost:1675/Service/SubCategoryService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SubCategoryServiceSoap12" binding="tns:SubCategoryServiceSoap12">
+      <soap12:address location="http://localhost:1675/Service/SubCategoryService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

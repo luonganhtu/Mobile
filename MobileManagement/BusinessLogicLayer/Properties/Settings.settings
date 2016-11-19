@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BusinessLogicLayer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BusinessLogicLayer_UserLocalhost_UserService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1675/Service/UserService.asmx</Value>
+    </Setting>
+    <Setting Name="BusinessLogicLayer_AccountLocalhost_AccountService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1675/Service/AccountService.asmx</Value>
+    </Setting>
+    <Setting Name="BusinessLogicLayer_SubCategoryLocalhost_SubCategoryService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1675/Service/SubCategoryService.asmx</Value>
+    </Setting>
+    <Setting Name="BusinessLogicLayer_CategoryLocalhost_CategoryService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1675/Service/CategoryService.asmx</Value>
+    </Setting>
+    <Setting Name="BusinessLogicLayer_ItemLocalhost_ItemService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1675/Service/ItemService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
