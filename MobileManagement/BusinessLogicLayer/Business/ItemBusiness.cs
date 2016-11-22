@@ -22,11 +22,19 @@ namespace BusinessLogicLayer.Business
             return service.GetListItem().OrderBy(n => n.Id).ToList();
         }
 
-        //lay danh sach ma san pham
+        //lay danh sach ma san pham khi có id category
         public List<ItemDTO> GetListItemWhenCategoryId(int _pCategoryId)
         {
             return service.GetListItemWhenCategoryId(_pCategoryId).ToList();
         }
+
+        //lay danh sach ma san pham khi có id subcategory
+        public List<ItemDTO> GetListItemWhenSubCategoryId(int _pSubCategoryId)
+        {
+            return service.GetListItemWhenSubCategoryId(_pSubCategoryId).ToList();
+        }
+
+
 
         // Thêm
         public bool AddItem(ItemDTO pItemDTO)
@@ -61,5 +69,13 @@ namespace BusinessLogicLayer.Business
         {
             return service.SelectNameItem(pItemID);
         }
+
+        //Lấy mã sản phẩm mà không thuộc danh mục được chọn
+        public List<ItemDTO> GetListItemNoRelationItemCategory(int _pCategoryId)
+        {
+            return service.GetListItemNoRelationItemCategory(_pCategoryId).ToList();
+        }
+
+
     }
 }

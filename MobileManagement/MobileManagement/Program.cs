@@ -16,7 +16,7 @@ namespace MobileManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmManagerCategory());
+            Application.Run(new frmLogin());
         }
     }
 }

@@ -22,3 +22,27 @@ c:\users\win\documents\visual studio 2015\Projects\MobileManagement\DataAccessLa
 c:\users\win\documents\visual studio 2015\Projects\MobileManagement\DataAccessLayer\bin\EntityFramework.SqlServer.dll
 c:\users\win\documents\visual studio 2015\Projects\MobileManagement\DataAccessLayer\bin\EntityFramework.xml
 c:\users\win\documents\visual studio 2015\Projects\MobileManagement\DataAccessLayer\bin\EntityFramework.SqlServer.xml
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\csc.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\vbc.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\VBCSCompiler.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\DataAccessLayer.dll.config
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\DataAccessLayer.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\DataAccessLayer.pdb
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\EntityFramework.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\EntityFramework.SqlServer.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\EntityFramework.xml
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\EntityFramework.SqlServer.xml
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

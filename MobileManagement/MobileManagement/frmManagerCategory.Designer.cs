@@ -28,24 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvSubCategory = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameSubCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tSMIDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvItem = new System.Windows.Forms.DataGridView();
+            this.IdItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnSubCategory = new System.Windows.Forms.Button();
             this.btnItem = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameSubCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -97,10 +102,46 @@
             this.dgvSubCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.NameSubCategory});
+            this.dgvSubCategory.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvSubCategory.Location = new System.Drawing.Point(15, 19);
             this.dgvSubCategory.Name = "dgvSubCategory";
+            this.dgvSubCategory.ReadOnly = true;
             this.dgvSubCategory.Size = new System.Drawing.Size(419, 200);
             this.dgvSubCategory.TabIndex = 0;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Mã";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 150;
+            // 
+            // NameSubCategory
+            // 
+            this.NameSubCategory.HeaderText = "Tên";
+            this.NameSubCategory.Name = "NameSubCategory";
+            this.NameSubCategory.ReadOnly = true;
+            this.NameSubCategory.Width = 250;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.tSMIDetails});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(119, 32);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
+            // 
+            // tSMIDetails
+            // 
+            this.tSMIDetails.Name = "tSMIDetails";
+            this.tSMIDetails.Size = new System.Drawing.Size(118, 22);
+            this.tSMIDetails.Text = "Chi Tiết ";
+            this.tSMIDetails.Click += new System.EventHandler(this.tSMIDetails_Click);
             // 
             // groupBox3
             // 
@@ -120,8 +161,23 @@
             this.NameItem});
             this.dgvItem.Location = new System.Drawing.Point(17, 19);
             this.dgvItem.Name = "dgvItem";
+            this.dgvItem.ReadOnly = true;
             this.dgvItem.Size = new System.Drawing.Size(387, 200);
             this.dgvItem.TabIndex = 0;
+            // 
+            // IdItem
+            // 
+            this.IdItem.HeaderText = "Mã";
+            this.IdItem.Name = "IdItem";
+            this.IdItem.ReadOnly = true;
+            this.IdItem.Width = 150;
+            // 
+            // NameItem
+            // 
+            this.NameItem.HeaderText = "Tên";
+            this.NameItem.Name = "NameItem";
+            this.NameItem.ReadOnly = true;
+            this.NameItem.Width = 250;
             // 
             // btnCategory
             // 
@@ -131,6 +187,7 @@
             this.btnCategory.TabIndex = 3;
             this.btnCategory.Text = "Danh Mục";
             this.btnCategory.UseVisualStyleBackColor = true;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // btnSubCategory
             // 
@@ -140,6 +197,7 @@
             this.btnSubCategory.TabIndex = 4;
             this.btnSubCategory.Text = "Phân Loại";
             this.btnSubCategory.UseVisualStyleBackColor = true;
+            this.btnSubCategory.Click += new System.EventHandler(this.btnSubCategory_Click);
             // 
             // btnItem
             // 
@@ -149,6 +207,7 @@
             this.btnItem.TabIndex = 5;
             this.btnItem.Text = "Sản Phẩm";
             this.btnItem.UseVisualStyleBackColor = true;
+            this.btnItem.Click += new System.EventHandler(this.btnItem_Click);
             // 
             // groupBox4
             // 
@@ -162,30 +221,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Quản Lý";
             // 
-            // Id
-            // 
-            this.Id.HeaderText = "Mã";
-            this.Id.Name = "Id";
-            this.Id.Width = 150;
-            // 
-            // NameSubCategory
-            // 
-            this.NameSubCategory.HeaderText = "Tên";
-            this.NameSubCategory.Name = "NameSubCategory";
-            this.NameSubCategory.Width = 250;
-            // 
-            // IdItem
-            // 
-            this.IdItem.HeaderText = "Mã";
-            this.IdItem.Name = "IdItem";
-            this.IdItem.Width = 150;
-            // 
-            // NameItem
-            // 
-            this.NameItem.HeaderText = "Tên";
-            this.NameItem.Name = "NameItem";
-            this.NameItem.Width = 250;
-            // 
             // frmManagerCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,12 +231,14 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmManagerCategory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManagerCategory";
             this.Load += new System.EventHandler(this.frmManagerCategory_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -226,5 +263,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NameSubCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tSMIDetails;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

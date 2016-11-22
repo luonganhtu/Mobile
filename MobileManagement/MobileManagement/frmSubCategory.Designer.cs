@@ -188,6 +188,7 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.panel1);
             this.Name = "frmSubCategory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSubCategory";
             this.Load += new System.EventHandler(this.frmSubCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSubCategory)).EndInit();

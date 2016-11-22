@@ -31,8 +31,18 @@ namespace MobileManagement
         {
             _AccountBusiness = new AccountBusiness();
             bool kiemTra = false;
-            kiemTra = _AccountBusiness.CheckAccount(txtAccountName.Text.ToString(),txtPassword.Text.ToString());
-            if(kiemTra == false)
+            kiemTra = _AccountBusiness.CheckAccount(txtAccountName.Text.ToString(), txtPassword.Text.ToString());
+            if (txtAccountName.Text == "")
+            {
+                MessageBox.Show("Tên đăng nhập không được trống! Vui lòng nhập Tên đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (txtPassword.Text == "")
+            {
+                MessageBox.Show("Mật khẩu không được trống! Vui lòng nhập mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (kiemTra == false)
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng! Vui lòng nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -40,9 +50,11 @@ namespace MobileManagement
             else
             {
                 this.Hide();
-                frmItem frm = new frmItem();
-                frm.Show();
+                frmManagerCategory frm = new frmManagerCategory();
+                frm.ShowDialog();
+                this.Visible = true;
             }
         }
+    
     }
 }

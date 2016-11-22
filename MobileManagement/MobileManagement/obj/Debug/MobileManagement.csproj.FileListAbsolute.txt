@@ -29,3 +29,36 @@ C:\Users\WIN\Documents\Visual Studio 2015\Projects\MobileManagement\MobileManage
 C:\Users\WIN\Documents\Visual Studio 2015\Projects\MobileManagement\MobileManagement\obj\Debug\MobileManagement.frmItem.resources
 C:\Users\WIN\Documents\Visual Studio 2015\Projects\MobileManagement\MobileManagement\obj\Debug\MobileManagement.frmLogin.resources
 C:\Users\WIN\Documents\Visual Studio 2015\Projects\MobileManagement\MobileManagement\obj\Debug\MobileManagement.frmManagerCategory.resources
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\MobileManagement.exe.config
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.pdb
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\csc.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\vbc.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\MobileManagement.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\MobileManagement.pdb
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\BusinessLogicLayer.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\DataAccessLayer.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\EntityFramework.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\DataAccessLayer.pdb
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\bin\Debug\EntityFramework.xml
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.csprojResolveAssemblyReference.cache
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.frmCategory.resources
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.frmItem.resources
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.frmLogin.resources
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.frmManagerCategory.resources
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.frmSubCategory.resources
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.Properties.Resources.resources
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.csproj.GenerateResource.Cache
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.SubForm.frmSubCategoryDetails.resources
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\MobileManagement\obj\Debug\MobileManagement.SubForm.frmItem_Category.resources

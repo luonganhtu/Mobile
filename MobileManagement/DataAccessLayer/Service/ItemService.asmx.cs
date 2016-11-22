@@ -32,7 +32,7 @@ namespace DataAccessLayer.Service
             }
         }
 
-        //lấy list Mã Item
+        //lấy list Mã Item khi co mã danh mục
         [WebMethod]
         public List<ItemDTO> GetListItemWhenCategoryId(int _pCategoryId)
         {
@@ -144,7 +144,7 @@ namespace DataAccessLayer.Service
             using (db = new MobileEntities())
             {
                 ITEM item = db.ITEMs.SingleOrDefault(n => n.Id == pItemID);
-                          
+
                 try
                 {
                     item.CATEGORies.Clear();
@@ -174,6 +174,76 @@ namespace DataAccessLayer.Service
                 {
                     return "";
                 }
+            }
+        }
+
+        //lấy list Mã Item khi co mã danh mục
+        [WebMethod]
+        public List<ItemDTO> GetListItemWhenSubCategoryId(int _pSubCategoryId)
+        {
+            using (db = new MobileEntities())
+            {
+                List<ItemDTO> lstItemDTO = new List<ItemDTO>();
+                SUBCATEGORY subCategory = db.SUBCATEGORies.SingleOrDefault(n => n.Id == _pSubCategoryId);
+                if (subCategory == null)
+                {
+                    return null;
+                }
+                else
+                    foreach (var item in subCategory.ITEMs)
+                    {
+                        ItemDTO itemDTO = new ItemDTO();
+                        itemDTO.Id = item.Id;
+                        lstItemDTO.Add(itemDTO);
+                    }
+                return lstItemDTO;
+            }
+        }
+
+        //lấy list Mã Item khi co mã danh mục
+        [WebMethod]
+        public List<ItemDTO> GetListItemNoRelationItemCategory(int _pCategoryId)
+        {
+            using (db = new MobileEntities())
+            {
+                List<ITEM> _lstItem = new List<ITEM>();
+                List<ItemDTO> lstItemDTO = new List<ItemDTO>();
+                CATEGORY category = db.CATEGORies.SingleOrDefault(n => n.Id == _pCategoryId);
+                if (category == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    if (category.ITEMs.Count == 0)
+                    {
+                        _lstItem = db.ITEMs.ToList();
+                    }
+                    else
+                    {
+                        foreach (var item in category.ITEMs)
+                        {
+                            _lstItem = db.ITEMs.Where(n => n.Id != item.Id).ToList();
+                            //for (int i = 0; i < _lstItem.Count; i++)
+                            //{
+                            //    if (_lstItem[i].Id == item.Id)
+                            //    {
+                            //        ListItem.Add(_lstItem[i]);
+                            //    }
+
+
+                            //}
+                        }
+                    }
+                    foreach (var k in _lstItem)
+                    {
+                        ItemDTO itemDTO = new ItemDTO();
+                        itemDTO.Id = k.Id;
+                        lstItemDTO.Add(itemDTO);
+                    }
+                    return lstItemDTO;
+                }
+
             }
         }
     }

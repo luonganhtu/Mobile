@@ -20,3 +20,25 @@ c:\users\win\documents\visual studio 2015\Projects\MobileManagement\BusinessLogi
 c:\users\win\documents\visual studio 2015\Projects\MobileManagement\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
 c:\users\win\documents\visual studio 2015\Projects\MobileManagement\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 c:\users\win\documents\visual studio 2015\Projects\MobileManagement\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\csc.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\vbc.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll.config
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\EntityFramework.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\bin\Debug\EntityFramework.xml
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\WIN\Desktop\githubMobile\Mobile\MobileManagement\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

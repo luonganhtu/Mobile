@@ -12,6 +12,7 @@ using BusinessLogicLayer.CategoryLocalhost;
 using BusinessLogicLayer.SubCategoryLocalhost;
 using BusinessLogicLayer;
 using BusinessLogicLayer.Business;
+using MobileManagement.SubForm;
 
 namespace MobileManagement
 {
@@ -28,7 +29,7 @@ namespace MobileManagement
         private List<SubCategoryDTO> _lstSubCategory = new List<SubCategoryDTO>();
         ItemBusiness _ItemBusiness;
         private List<ItemDTO> _lstItem = new List<ItemDTO>();
-       
+
         private enum ACTION : int
         {
             LOADING = 1,
@@ -81,15 +82,15 @@ namespace MobileManagement
                 {
                     _lstSubCategory = _SubCategoryBusiness.GetListSubCategoryWhenIdCategory((int)cbCategory.SelectedValue);
                     dgvSubCategory.Rows.Clear();
-                    for(int i = 0; i< _lstSubCategory.Count; i++)
+                    for (int i = 0; i < _lstSubCategory.Count; i++)
                     {
                         var c = dgvSubCategory.Rows.Add();
                         dgvSubCategory.Rows[c].Cells[0].Value = _lstSubCategory[i].Id;
                         dgvSubCategory.Rows[c].Cells[1].Value = _lstSubCategory[i].Name;
                     }
-                     _lstItem = _ItemBusiness.GetListItemWhenCategoryId((int)cbCategory.SelectedValue);
+                    _lstItem = _ItemBusiness.GetListItemWhenCategoryId((int)cbCategory.SelectedValue);
                     dgvItem.Rows.Clear();
-                    for(int j = 0; j < _lstItem.Count; j++)
+                    for (int j = 0; j < _lstItem.Count; j++)
                     {
                         var d = dgvItem.Rows.Add();
                         dgvItem.Rows[d].Cells[0].Value = _lstItem[j].Id;
@@ -97,6 +98,41 @@ namespace MobileManagement
                     }
                 }
             }
+        }
+
+        private void tSMIDetails_Click(object sender, EventArgs e)
+        {
+            
+            var index = dgvSubCategory.CurrentCell.RowIndex;
+            int subCategoryId = int.Parse(dgvSubCategory.Rows[index].Cells[0].Value.ToString());
+            this.Hide();
+            frmSubCategoryDetails frm = new frmSubCategoryDetails(subCategoryId);
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmCategory frm = new frmCategory();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnSubCategory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmSubCategory frm = new frmSubCategory();
+            frm.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmItem frm = new frmItem();
+            frm.ShowDialog();
+            this.Visible = true;
         }
     }
 }

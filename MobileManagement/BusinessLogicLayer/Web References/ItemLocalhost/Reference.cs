@@ -45,6 +45,10 @@ namespace BusinessLogicLayer.ItemLocalhost {
         
         private System.Threading.SendOrPostCallback SelectNameItemOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetListItemWhenSubCategoryIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetListItemNoRelationItemCategoryOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -106,6 +110,12 @@ namespace BusinessLogicLayer.ItemLocalhost {
         
         /// <remarks/>
         public event SelectNameItemCompletedEventHandler SelectNameItemCompleted;
+        
+        /// <remarks/>
+        public event GetListItemWhenSubCategoryIdCompletedEventHandler GetListItemWhenSubCategoryIdCompleted;
+        
+        /// <remarks/>
+        public event GetListItemNoRelationItemCategoryCompletedEventHandler GetListItemNoRelationItemCategoryCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://ItemService.org/GetListItem", RequestNamespace="http://ItemService.org/", ResponseNamespace="http://ItemService.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -336,6 +346,64 @@ namespace BusinessLogicLayer.ItemLocalhost {
             if ((this.SelectNameItemCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SelectNameItemCompleted(this, new SelectNameItemCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://ItemService.org/GetListItemWhenSubCategoryId", RequestNamespace="http://ItemService.org/", ResponseNamespace="http://ItemService.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ItemDTO[] GetListItemWhenSubCategoryId(int _pSubCategoryId) {
+            object[] results = this.Invoke("GetListItemWhenSubCategoryId", new object[] {
+                        _pSubCategoryId});
+            return ((ItemDTO[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListItemWhenSubCategoryIdAsync(int _pSubCategoryId) {
+            this.GetListItemWhenSubCategoryIdAsync(_pSubCategoryId, null);
+        }
+        
+        /// <remarks/>
+        public void GetListItemWhenSubCategoryIdAsync(int _pSubCategoryId, object userState) {
+            if ((this.GetListItemWhenSubCategoryIdOperationCompleted == null)) {
+                this.GetListItemWhenSubCategoryIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListItemWhenSubCategoryIdOperationCompleted);
+            }
+            this.InvokeAsync("GetListItemWhenSubCategoryId", new object[] {
+                        _pSubCategoryId}, this.GetListItemWhenSubCategoryIdOperationCompleted, userState);
+        }
+        
+        private void OnGetListItemWhenSubCategoryIdOperationCompleted(object arg) {
+            if ((this.GetListItemWhenSubCategoryIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListItemWhenSubCategoryIdCompleted(this, new GetListItemWhenSubCategoryIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://ItemService.org/GetListItemNoRelationItemCategory", RequestNamespace="http://ItemService.org/", ResponseNamespace="http://ItemService.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ItemDTO[] GetListItemNoRelationItemCategory(int _pCategoryId) {
+            object[] results = this.Invoke("GetListItemNoRelationItemCategory", new object[] {
+                        _pCategoryId});
+            return ((ItemDTO[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetListItemNoRelationItemCategoryAsync(int _pCategoryId) {
+            this.GetListItemNoRelationItemCategoryAsync(_pCategoryId, null);
+        }
+        
+        /// <remarks/>
+        public void GetListItemNoRelationItemCategoryAsync(int _pCategoryId, object userState) {
+            if ((this.GetListItemNoRelationItemCategoryOperationCompleted == null)) {
+                this.GetListItemNoRelationItemCategoryOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListItemNoRelationItemCategoryOperationCompleted);
+            }
+            this.InvokeAsync("GetListItemNoRelationItemCategory", new object[] {
+                        _pCategoryId}, this.GetListItemNoRelationItemCategoryOperationCompleted, userState);
+        }
+        
+        private void OnGetListItemNoRelationItemCategoryOperationCompleted(object arg) {
+            if ((this.GetListItemNoRelationItemCategoryCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetListItemNoRelationItemCategoryCompleted(this, new GetListItemNoRelationItemCategoryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -679,6 +747,58 @@ namespace BusinessLogicLayer.ItemLocalhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListItemWhenSubCategoryIdCompletedEventHandler(object sender, GetListItemWhenSubCategoryIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListItemWhenSubCategoryIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListItemWhenSubCategoryIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ItemDTO[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ItemDTO[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetListItemNoRelationItemCategoryCompletedEventHandler(object sender, GetListItemNoRelationItemCategoryCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetListItemNoRelationItemCategoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetListItemNoRelationItemCategoryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ItemDTO[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ItemDTO[])(this.results[0]));
             }
         }
     }

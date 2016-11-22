@@ -14,6 +14,7 @@ using BusinessLogicLayer;
 using System.IO;
 using BusinessLogicLayer.Business;
 using System.Text.RegularExpressions;
+using MobileManagement.SubForm;
 
 namespace MobileManagement
 {
@@ -45,6 +46,7 @@ namespace MobileManagement
                 btnThem.Enabled = false;
                 btnSua.Enabled = false;
                 btnXoa.Enabled = false;
+                groupBox1.Enabled = false;
             }
             else if (dieukhien == ((int)DIEUKHIEN.MO))
             {
@@ -52,6 +54,7 @@ namespace MobileManagement
                 btnThem.Enabled = true;
                 btnSua.Enabled = true;
                 btnXoa.Enabled = true;
+                groupBox1.Enabled = true;
             }
         }
         #endregion
@@ -423,6 +426,14 @@ namespace MobileManagement
                     }
                 
             }
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmItem_Category frm = new frmItem_Category();
+            frm.ShowDialog();
+            this.Visible = true;
         }
     }
 }

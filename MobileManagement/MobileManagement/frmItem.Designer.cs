@@ -61,9 +61,13 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.btnAddSubCategory = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHinhAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListItem)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -280,7 +284,7 @@
             this.dgvListItem.Location = new System.Drawing.Point(12, 318);
             this.dgvListItem.Name = "dgvListItem";
             this.dgvListItem.ReadOnly = true;
-            this.dgvListItem.Size = new System.Drawing.Size(730, 150);
+            this.dgvListItem.Size = new System.Drawing.Size(595, 188);
             this.dgvListItem.TabIndex = 1;
             this.dgvListItem.SelectionChanged += new System.EventHandler(this.dgvListItem_SelectionChanged);
             // 
@@ -364,11 +368,42 @@
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.Location = new System.Drawing.Point(27, 32);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(75, 53);
+            this.btnAddCategory.TabIndex = 5;
+            this.btnAddCategory.Text = "Thêm Vào Danh Mục";
+            this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            // 
+            // btnAddSubCategory
+            // 
+            this.btnAddSubCategory.Location = new System.Drawing.Point(27, 105);
+            this.btnAddSubCategory.Name = "btnAddSubCategory";
+            this.btnAddSubCategory.Size = new System.Drawing.Size(75, 53);
+            this.btnAddSubCategory.TabIndex = 6;
+            this.btnAddSubCategory.Text = "Thêm Vào Phân Loại";
+            this.btnAddSubCategory.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnAddCategory);
+            this.groupBox1.Controls.Add(this.btnAddSubCategory);
+            this.groupBox1.Location = new System.Drawing.Point(624, 318);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(123, 188);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Quản Lý";
+            // 
             // frmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 480);
+            this.ClientSize = new System.Drawing.Size(774, 528);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
@@ -382,6 +417,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHinhAnh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListItem)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -421,5 +457,8 @@
         private System.Windows.Forms.Button btnThayDoiHinh;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pbHinhAnh;
+        private System.Windows.Forms.Button btnAddCategory;
+        private System.Windows.Forms.Button btnAddSubCategory;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
